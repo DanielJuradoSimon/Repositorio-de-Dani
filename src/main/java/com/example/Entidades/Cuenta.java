@@ -1,11 +1,8 @@
 package com.example.Entidades;
 
-/*número de cuenta, fecha de creación y saldo que contiene.*/
-
 import java.util.List;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,22 +12,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.springframework.beans.factory.annotation.Value;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "cuentas")
-public class Cuenta {
+public class Cuenta implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,11 +44,13 @@ public class Cuenta {
 	private long saldo;
 	
 	@JsonIgnoreProperties(value={"cuenta", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cuenta", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="cuenta_id")
 	private List<Cliente> clientes;
 	
 	@JsonIgnoreProperties(value={"cuenta", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cuenta", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name="cuenta_id")
 	private List<Operacion> Operaciones;
 
 	public List<Operacion> getOperaciones() {
