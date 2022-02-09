@@ -20,18 +20,13 @@ public class Operacion implements Serializable{
 	@JoinColumn(name = "cuenta_id")
 	private Cuenta cuenta;*/
 	
-	@NotNull(message = "debe de existir al menos una operación")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "tipoOperacion_id")
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@Column(name = "Operacion")
+	@Enumerated(value = EnumType.STRING)
 	private TipoOperacion tipoOperacion;
+		
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public TipoOperacion getTipoOperacion() {
@@ -40,6 +35,10 @@ public class Operacion implements Serializable{
 
 	public void setTipoOperacion(TipoOperacion tipoOperacion) {
 		this.tipoOperacion = tipoOperacion;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	private static final long serialVersionUID = 1L;
