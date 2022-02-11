@@ -13,7 +13,5 @@ import com.example.Entidades.Operacion;
 //@Repository
 public interface CuentaRepositorioI extends JpaRepository<Cuenta, Long>{
 	
-	//List <Cuenta> findByCliente(final Cliente Cliente);
-	//List <Operacion> findOperacionByCuenta(final Cuenta Cuenta);
 	
 }
