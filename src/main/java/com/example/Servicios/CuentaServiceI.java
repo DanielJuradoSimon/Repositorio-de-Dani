@@ -10,9 +10,9 @@ public interface CuentaServiceI {
 
 	public List<Cuenta> obtenerTodasCuentas();
 	
-	public List<Cuenta> obtenerCuentasPorCliente(final Cliente Cliente);
+	//public List<Cuenta> obtenerCuentasPorCliente(final Cliente Cliente);
 
-	public List<Operacion> obtenerOperacionesPorCuenta(final Cuenta Cuenta);
+	//public List<Operacion> obtenerOperacionesPorCuenta(final Cuenta Cuenta);
 	
 	public void eliminarCuenta(final Cuenta Cuenta);
 

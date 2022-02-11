@@ -10,12 +10,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.stereotype.Service;
 
 import com.example.Entidades.Cliente;
 import com.example.Entidades.Cuenta;
 import com.example.Entidades.Operacion;
 import com.example.Repositorios.CuentaRepositorioI;
 
+@Service
 public class CuentaServiceImpl implements CuentaServiceI{
 
 	@Autowired
@@ -28,7 +30,7 @@ public class CuentaServiceImpl implements CuentaServiceI{
 		
 	}
 
-	@Override
+	/*@Override
 	public List<Cuenta> obtenerCuentasPorCliente(Cliente Cliente) {
 		
 		return cuentaRepositorio.findByCliente(Cliente);
@@ -40,7 +42,7 @@ public class CuentaServiceImpl implements CuentaServiceI{
 
 		return cuentaRepositorio.findOperacionByCuenta(Cuenta);
 		
-	}
+	}*/
 
 	@Override
 	public void eliminarCuenta(Cuenta Cuenta) {

@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -61,10 +63,12 @@ public class Cliente implements Serializable{
 	@Column(nullable = false, unique = true, name = "teléfono")
 	private String telefono;
 	
-	@JsonIgnoreProperties(value={"cliente", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="cliente_id")
-	private List<Cuenta> cuentas;
+	//@JsonIgnoreProperties(value={"cliente", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "cliente_cuenta",
+	joinColumns = @JoinColumn(name = "cliente_id"),
+	inverseJoinColumns = @JoinColumn(name = "cuenta_id"))
+	private List<Cuenta> misCuentas;
 
 	public Long getId() {
 		return id;
@@ -122,14 +126,28 @@ public class Cliente implements Serializable{
 		this.telefono = telefono;
 	}
 
-	public List<Cuenta> getCuentas() {
-		return cuentas;
+	
+	public String getDNI() {
+		return DNI;
 	}
 
-	public void setCuentas(List<Cuenta> cuentas) {
-		this.cuentas = cuentas;
+	public void setDNI(String dNI) {
+		DNI = dNI;
 	}
-	
+
+	public List<Cuenta> getMisCuentas() {
+		return misCuentas;
+	}
+
+	public void setMisCuentas(List<Cuenta> misCuentas) {
+		this.misCuentas = misCuentas;
+	}
+
+
+
+
 	private static final long serialVersionUID = 1L;
+	
+	
 	
 }
