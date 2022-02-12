@@ -101,6 +101,12 @@ public class Cuenta implements Serializable{
 		this.saldo = saldo;
 	}
 	
+	@Override
+	public String toString() {
+		return "Cuenta [id=" + id + ", numCuenta=" + numCuenta + ", fecha_nac=" + fecha_nac + ", saldo=" + saldo
+				+ ", clientes=" + clientes + ", Operaciones=" + Operaciones + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 }

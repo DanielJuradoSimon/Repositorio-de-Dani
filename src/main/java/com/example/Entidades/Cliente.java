@@ -146,6 +146,16 @@ public class Cliente implements Serializable{
 
 
 
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", DNI=" + DNI + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fecha_nac="
+				+ fecha_nac + ", direccion=" + direccion + ", email=" + email + ", telefono=" + telefono
+				+ ", misCuentas=" + misCuentas + "]";
+	}
+
+
+
+
 	private static final long serialVersionUID = 1L;
 	
 	

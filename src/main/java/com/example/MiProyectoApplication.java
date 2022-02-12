@@ -10,19 +10,19 @@ import com.example.Entidades.Operacion;
 import com.example.Servicios.OperacionServiceI;
 
 @SpringBootApplication
-public class MiProyectoApplication /*implements CommandLineRunner*/{
+public class MiProyectoApplication implements CommandLineRunner{
 
-	//@Autowired
-	//private OperacionServiceI operacionServiceI;
+	@Autowired
+	private OperacionServiceI operacionServiceI;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(MiProyectoApplication.class, args);
 	}
 
-	/*@Override
+	@Override
 	public void run(String... args) throws Exception {
 		
-		/*if(operacionServiceI.obtenerTodosOperaciones().isEmpty()) {
+		if(operacionServiceI.obtenerTodosOperaciones().isEmpty()) {
 			System.out.println("No hay datos disponibles");
 		}else {
 			for(Operacion operacion : operacionServiceI.obtenerTodosOperaciones()){
@@ -30,6 +30,6 @@ public class MiProyectoApplication /*implements CommandLineRunner*/{
 			}
 		}
 		System.out.println("---------------");
-	}*/
+	}
 
 }
