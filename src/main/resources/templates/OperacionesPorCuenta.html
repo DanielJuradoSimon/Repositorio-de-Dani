@@ -17,61 +17,71 @@
 		crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="card-body">
 
 	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
 		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Listar, actualizar o eliminar clientes</a>
-		<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas por cliente</a>
-		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar operaciones por cuenta</a>
+		<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas</a>
+		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar cuentas por cliente</a>
+		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta2}" role="button">Listar operaciones por cuenta</a>
+		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Adjuntar cliente a cuenta</a>
+		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Transferencia</a>
 	</nav>
 
-	<div class="container ">
 
-		<div class="row d-flex justify-content-center mt-3">
+	<div class="row d-flex justify-content-center mt-3">
 
-			<div class="col-8">
-				<form method="POST" action="/cuentas2">
-					<select name="id">
-						<option value="0">Elige una cuenta</option>
-						<option th:each="cuenta : ${cuentas}" th:value="${cuenta.id}" th:utext="${cuenta.numCuenta}">
-						</option>
-					</select>
-					<input type="submit" value="Buscar" />
-				</form>
-			</div>
+		<div class="card text-white bg-dark mb-3">
+			<div class="card-header">Cuentas</div>
+			<div class="card-body">
 
-			<div class="col-8 " th:if="${#lists.size(listaDatos) > 0}">
+				<div class="col-8">
+					<form method="POST" action="/cuentas2">
+						<select name="id">
+							<option value="0">Elige una cuenta</option>
+							<option th:each="cuenta : ${cuentas}" th:value="${cuenta.id}"
+								th:utext="${cuenta.numCuenta}">
+							</option>
+						</select>
+						<input type="submit" value="Buscar" />
+					</form>
+				</div>
+
+				<div class="col-8 " th:if="${#lists.size(listaDatos) > 0}">
 
 
-				<table class="table table-dark table-striped">
-					<thead>
-						<tr>
-							<th scope="col">ID</th>
-							<th scope="col">Fecha</th>
-							<th scope="col">Cantidad</th>
-							<th scope="col">Tipo de Operacion</th>
-
-						</tr>
-					</thead>
-
-					<tbody>
-						<th:block th:each="datos : ${listaDatos}">
+					<table class="table table-dark table-striped">
+						<thead>
 							<tr>
-								<td scope="row" th:text="${datos.id}" />
-								<td scope="row" th:text="${datos.fecha_de_realizacion}" />
-								<td scope="row" th:text="${datos.cantidad}" />
-								<td scope="row" th:text="${datos.tipoOperacion}" />
+								<th scope="col">ID</th>
+								<th scope="col">Fecha</th>
+								<th scope="col">Cantidad</th>
+								<th scope="col">Tipo de Operacion</th>
 
 							</tr>
-						</th:block>
-					</tbody>
+						</thead>
 
-				</table>
+						<tbody>
+							<th:block th:each="datos : ${listaDatos}">
+								<tr>
+									<td scope="row" th:text="${datos.id}" />
+									<td scope="row" th:text="${datos.fecha_de_realizacion}" />
+									<td scope="row" th:text="${datos.cantidad}" />
+									<td scope="row" th:text="${datos.tipoOperacion}" />
 
+								</tr>
+							</th:block>
+						</tbody>
+
+					</table>
+
+				</div>
+
+				<div class="col-8 " th:unless="${#lists.size(listaDatos) < 0}"></div>
 			</div>
-
-			<div class="col-8 " th:unless="${#lists.size(listaDatos) < 0}"></div>
 		</div>
+	</div>
+	</div>
 
 	</div>
 

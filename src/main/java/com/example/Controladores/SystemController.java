@@ -31,6 +31,16 @@ public class SystemController {
 		return "redirect:mostrarClientes2";
 	}
 	
+	@GetMapping("/ListarOperacionesPorCuenta2")
+	public String listOperacionesPorCuenta() {
+		return "redirect:cuentas1";
+	}
+	
+	@GetMapping("/AnadirClienteACuenta")
+	public String ClienteACuenta() {
+		return "redirect:anadirClienteACuenta";
+	}
+	
 	
 	
 	//Redirecciona a la plantilla de búsqueda

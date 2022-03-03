@@ -59,4 +59,12 @@ public class ClienteServiceImpl implements ClienteServiceI{
 		return listaClientes;
 	}
 
+
+	@Override
+	public void insercionClienteCuenta(long id_cliente, long id_cuenta) {
+		
+		clienteRepositorio.insercion(id_cliente, id_cuenta);
+		
+	}
+
 }

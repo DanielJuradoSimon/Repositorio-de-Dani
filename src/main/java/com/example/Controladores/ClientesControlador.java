@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.Entidades.Cliente;
+import com.example.Entidades.Cliente_cuenta;
+import com.example.Entidades.Cuenta;
 import com.example.Servicios.ClienteServiceI;
+import com.example.Servicios.CuentaServiceI;
 
 @Controller
 public class ClientesControlador {
@@ -28,6 +31,9 @@ public class ClientesControlador {
 	
 	@Autowired
 	private ClienteServiceI clienteServiceI;
+	
+	@Autowired
+	private CuentaServiceI cuentaServiceI;
 	
 	@GetMapping("/mostrarClientes")
 	public String mostrarClientes(Model model) {
@@ -133,5 +139,46 @@ public class ClientesControlador {
 
 		return "ListarCuentasPorCliente";
 	}
+	
+	@GetMapping("/anadirClienteACuenta")
+	private String anadirClienteLista(Model model) {
+
+		final List<Cliente> clientesList = clienteServiceI.obtenerTodosClientes();
+		final List<Cuenta> cuentasList = cuentaServiceI.obtenerTodasCuentas();
+
+		// Carga de datos al modelo
+		model.addAttribute("ClientesListView", clientesList);
+		model.addAttribute("CuentasListView", cuentasList);
+
+		return "ClienteACuenta";
+
+	}
+	
+	@PostMapping("/anadirClienteCuenta")
+	public String anadirClienteLista2(@Valid @ModelAttribute Cliente_cuenta Clientecuenta, BindingResult result)
+			throws Exception {
+		System.out.println(Clientecuenta.toString());
+		
+		if (result.hasErrors()) {
+			throw new Exception("Parámetros de matriculación erróneos");
+		} else {
+	
+			Cliente cl = clienteServiceI.findClienteByID(Long.valueOf(Clientecuenta.getCliente_id()));
+			Cuenta cu = cuentaServiceI.findCuentaByID(Long.valueOf(Long.valueOf(Clientecuenta.getCuenta_id())));
+
+	
+			Cliente_cuenta cc = new Cliente_cuenta();
+			cc.setCliente_id(cl.getId());
+			cc.setCuenta_id(cu.getId());
+			
+			clienteServiceI.insercionClienteCuenta(cc.getCliente_id(), cc.getCuenta_id());
+		
+
+		}
+
+		return "redirect:index";
+	}
+	
+	
 
 }

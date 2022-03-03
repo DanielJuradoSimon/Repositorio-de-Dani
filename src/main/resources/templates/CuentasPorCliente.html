@@ -19,76 +19,75 @@
 
 <body class="card-body">
 
-	<div class="row d-flex justify-content-center mt-3">
+		<div class="row d-flex justify-content-center mt-3">
 
-		<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-			<a class="navbar-brand" th:href="@{/verClientes}" role="button">Listar, actualizar o eliminar clientes</a>
-			<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas</a>
-			<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar cuentas por
-				cliente</a>
-			<a class="navbar-brand" th:href="@{/verClientes}" role="button">Ingresos y retiradas de una cuenta</a>
-			<a class="navbar-brand" th:href="@{/verClientes}" role="button">Adjuntar cliente a cuenta</a>
-			<a class="navbar-brand" th:href="@{/verClientes}" role="button">Transferencia</a>
-		</nav>
+			<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+				<a class="navbar-brand" th:href="@{/verClientes}" role="button">Listar, actualizar o eliminar clientes</a>
+				<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas</a>
+				<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar cuentas por cliente</a>
+				<a class="navbar-brand" th:href="@{/verClientes}" role="button">Ingresos y retiradas de una cuenta</a>
+				<a class="navbar-brand" th:href="@{/verClientes}" role="button">Adjuntar cliente a cuenta</a>
+				<a class="navbar-brand" th:href="@{/verClientes}" role="button">Transferencia</a>
+			</nav>
+			
+			<div class="card text-white bg-dark mb-3">
+				<div class="card-header">Cuentas</div>
+				<div class="card-body">
 
-		<div class="card text-white bg-dark mb-3">
-			<div class="card-header">Cuentas</div>
-			<div class="card-body">
+					<div class="col-8">
+						<form method="POST" action="/mostrarCuentasPorCliente">
+							<select name="id">
+								<option value="0">Elige un cliente</option>
+								<option th:each="cliente : ${clientesListView}" th:value="${cliente.id}"
+									th:utext="${cliente.DNI}"></option>
+							</select>
+							<input type="submit" value="Buscar" />
+						</form>
+					</div>
 
-				<div class="col-8">
-					<form method="POST" action="/mostrarCuentasPorCliente">
-						<select name="id">
-							<option value="0">Elige un cliente</option>
-							<option th:each="cliente : ${clientesListView}" th:value="${cliente.id}"
-								th:utext="${cliente.DNI}"></option>
-						</select>
-						<input type="submit" value="Buscar" />
-					</form>
-				</div>
-
-				<div class="col-8 " th:if="${#lists.size(cuentasListView) > 0}">
+					<div class="col-8 " th:if="${#lists.size(cuentasListView) > 0}">
 
 
-					<table class="table table-dark table-striped">
-						<thead>
-							<tr>
-								<th scope="col">ID</th>
-								<th scope="col">Número de cuenta</th>
-								<th scope="col">Fecha de creación</th>
-								<th scope="col">Saldo</th>
-								<th scope="col">Borrar</th>
-
-							</tr>
-						</thead>
-
-						<tbody>
-							<th:block th:each="datos : ${cuentasListView}">
+						<table class="table table-dark table-striped">
+							<thead>
 								<tr>
-									<td scope="row" th:text="${datos.id}" />
-									<td scope="row" th:text="${datos.numCuenta}" />
-									<td scope="row" th:text="${datos.fecha_crea}" />
-									<td scope="row" th:text="${datos.saldo}" />
-									<td scope="row" th:hidden="${btnBorrarCuentaEnabled}">
-										<form action="eliminarCuentaPorCliente" method="post">
-											<button th:disabled="${btnBorrarCuentaEnabled}" type="submit"
-												id="btnBorrarCuenta" name="cuentaId" th:value="${datos.id}"
-												class="btn btn-danger">▼</button>
-										</form>
-									</td>
+									<th scope="col">ID</th>
+									<th scope="col">Número de cuenta</th>
+									<th scope="col">Fecha de creación</th>
+									<th scope="col">Saldo</th>
+									<th scope="col">Borrar</th>
+
 								</tr>
-							</th:block>
+							</thead>
 
-						</tbody>
+							<tbody>
+								<th:block th:each="datos : ${cuentasListView}">
+									<tr>
+										<td scope="row" th:text="${datos.id}" />
+										<td scope="row" th:text="${datos.numCuenta}" />
+										<td scope="row" th:text="${datos.fecha_crea}" />
+										<td scope="row" th:text="${datos.saldo}" />
+										<td scope="row" th:hidden="${btnBorrarCuentaEnabled}">
+											<form action="eliminarCuentaPorCliente" method="post">
+												<button th:disabled="${btnBorrarCuentaEnabled}" type="submit"
+													id="btnBorrarCuenta" name="cuentaId" th:value="${datos.id}"
+													class="btn btn-danger">▼</button>
+											</form>
+										</td>
+									</tr>
+								</th:block>
 
-					</table>
-					<a class="btn btn-primary" th:href="@{index}" id="aBtnReturn" role="button">Volver</a>
+							</tbody>
+
+						</table>
+
+					</div>
+
+					<div class="col-8 " th:unless="${#lists.size(cuentasListView) < 0}"></div>
 				</div>
-
-				<div class="col-8 " th:unless="${#lists.size(cuentasListView) < 0}"></div>
 			</div>
-		</div>
 
-	</div>
+		</div>
 
 	</div>
 
