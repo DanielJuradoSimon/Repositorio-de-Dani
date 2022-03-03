@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.Entidades.Cuenta;
 import com.example.Entidades.Operacion;
 import com.example.Repositorios.OperacionRepositorioI;
 

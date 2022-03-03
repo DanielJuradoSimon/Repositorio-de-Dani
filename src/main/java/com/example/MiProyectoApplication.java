@@ -51,14 +51,14 @@ public class MiProyectoApplication implements CommandLineRunner{
 		System.out.println("---------------");
 		
 		Cliente cliente1 = new Cliente();
-		cliente1.setDNI("1234H");
+		cliente1.setDNI("88888888H");
 		cliente1.setId((long) 8);
 		cliente1.setNombre("Enric");
 		cliente1.setApellidos("Benavente");
-		cliente1.setFecha_nac(new Date(90,3,22));
-		cliente1.setDireccion("Calle tus muertos");
-		cliente1.setEmail("Enric@gmail.com");
-		cliente1.setTelefono("123967789");
+		cliente1.setFecha_nac("1990-10-02");
+		cliente1.setDireccion("Calle 8");
+		cliente1.setEmail("8@gmail.com");
+		cliente1.setTelefono("678546342");
 		
 		for(Cliente cliente : clienteServiceI.obtenerTodosClientes()){
 			if (cliente.getId()==cliente1.getId()) {

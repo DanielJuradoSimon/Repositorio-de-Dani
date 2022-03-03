@@ -23,6 +23,11 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data @AllArgsConstructor @NoArgsConstructor
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable{
@@ -48,8 +53,8 @@ public class Cliente implements Serializable{
 	
 	@NotNull(message = "no puede estar vacío")
 	@Column(name = "Fecha_de_nacimiento")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_nac;
+	//@Temporal(TemporalType.DATE)
+	private String fecha_nac;
 	
 	@NotNull(message = "no puede estar vacío")
 	private String direccion;
@@ -69,81 +74,6 @@ public class Cliente implements Serializable{
 	joinColumns = @JoinColumn(name = "cliente_id"),
 	inverseJoinColumns = @JoinColumn(name = "cuenta_id"))
 	private List<Cuenta> misCuentas;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public Date getFecha_nac() {
-		return fecha_nac;
-	}
-
-	public void setFecha_nac(Date fecha_nac) {
-		this.fecha_nac = fecha_nac;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	
-	public String getDNI() {
-		return DNI;
-	}
-
-	public void setDNI(String dNI) {
-		DNI = dNI;
-	}
-
-	public List<Cuenta> getMisCuentas() {
-		return misCuentas;
-	}
-
-	public void setMisCuentas(List<Cuenta> misCuentas) {
-		this.misCuentas = misCuentas;
-	}
-
-
 
 
 	@Override

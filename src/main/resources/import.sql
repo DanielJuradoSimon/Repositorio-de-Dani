@@ -1,11 +1,11 @@
 /*TABLA USUARIOS - POTENTIALCLIENT*/
-INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (1, '1111A', 'Contreras del Campo',  'Calle de la alegría', 'smiles@gmail.com',  '1976-10-02', 'Carmela', '695924211');
-INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (2, '2222B',  'Caballero Blanco', 'Plaza de la esperanza', 'cabama70@gmail.com', '1970-04-22', 'Marcos', '695924222');
-INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (3, '3333C', 'La Hoz Moreno', 'Paseo de la victoria', 'megustanadar@gmail.com', '2000-12-11', 'Lucía', '695924233');
-INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (4, '4444D', 'Adoración Rodrigo', 'Calle Tomellosera', 'quijote_y_sancho_panza@gmail.com', '1943-10-11', 'Dorita', '695924244');
-INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (5, '5555E', 'Jurado Barrón', 'Arrubial de la palmera', 'givememusic_givemelife@gmail.com', '1989-06-30', 'Rafa', '695924255');
-INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (6, '6666f', 'Campos', 'Carlos III', 'abcdf@gmail.com', '1980-01-05', 'Lupita', '695924266');
-INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (7, '7777G', 'Rodriguez Linares', 'Calle La Amapola', 'massoloquelauna@gmail.com', '1996-05-18', 'Javier', '695924277');
+INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (1, '11111111A', 'Sanchez',  'Calle 1', '1@gmail.com',  '1976-10-02', 'Pepe', '695924211');
+INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (2, '22222222B',  'Rodriguez', 'Calle 2', '2@gmail.com', '1970-04-22', 'Laura', '695924222');
+INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (3, '33333333C', 'Perez', 'Calle 3', '3@gmail.com', '2000-12-11', 'Marcos', '695924233');
+INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (4, '44444444D', 'Simon', 'Calle 4', '4@gmail.com', '1943-10-11', 'Ismael', '695924244');
+INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (5, '55555555E', 'Marquez', 'Calle 5', '5@gmail.com', '1989-06-30', 'Marta', '695924255');
+INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (6, '66666666f', 'Campos', 'Calle 6', '6@gmail.com', '1980-01-05', 'Luis', '695924266');
+INSERT INTO clientes(id, dni, apellidos, direccion, email, fecha_de_nacimiento, nombre, telefono) VALUES (7, '77777777G', 'Luna', 'Calle 7', '7@gmail.com', '1996-05-18', 'David', '695924277');
 
 
 /*TABLA CUENTAS - ACCOUNT*/

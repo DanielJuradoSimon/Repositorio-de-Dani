@@ -29,6 +29,25 @@ public class CuentaServiceImpl implements CuentaServiceI{
 		return cuentaRepositorio.findAll();
 		
 	}
+	
+	@Override
+	public void eliminarCuentaPorId(long ClienteId) {
+		cuentaRepositorio.deleteById(ClienteId);
+		
+	}
+	
+	@Override
+	public Cuenta findCuentaByID(long id) {
+		
+		Cuenta c = cuentaRepositorio.getById(id);
+		return c;
+		
+	}
+	
+	public List<Long> findCuentaByClienteID(long id){
+		
+		return cuentaRepositorio.findCuentaByClienteID(id);
+	}
 
 	/*@Override
 	public List<Cuenta> obtenerCuentasPorCliente(Cliente Cliente) {

@@ -22,6 +22,11 @@ import org.springframework.beans.factory.annotation.Value;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data @AllArgsConstructor @NoArgsConstructor
 @Entity
 @Table(name = "cuentas")
 public class Cuenta implements Serializable{
@@ -36,8 +41,8 @@ public class Cuenta implements Serializable{
 	
 	@NotNull(message = "no puede estar vacío")
 	@Column(name = "Fecha_de_creacion")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_nac;
+	//@Temporal(TemporalType.DATE)
+	private String fecha_crea;
 	
 	@Value("0")
 	@NotNull(message = "no puede estar vacío")
@@ -53,57 +58,10 @@ public class Cuenta implements Serializable{
 	@JoinColumn(name="cuenta_id")
 	private List<Operacion> Operaciones;
 
-	public List<Operacion> getOperaciones() {
-		return Operaciones;
-	}
-
-	public void setOperaciones(List<Operacion> operaciones) {
-		Operaciones = operaciones;
-	}
-	
-	public List<Cliente> getClientes() {
-		return clientes;
-	}
-
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNumCuenta() {
-		return numCuenta;
-	}
-
-	public void setNumCuenta(String numCuenta) {
-		this.numCuenta = numCuenta;
-	}
-
-	public Date getFecha_nac() {
-		return fecha_nac;
-	}
-
-	public void setFecha_nac(Date fecha_nac) {
-		this.fecha_nac = fecha_nac;
-	}
-
-	public long getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(long saldo) {
-		this.saldo = saldo;
-	}
 	
 	@Override
 	public String toString() {
-		return "Cuenta [id=" + id + ", numCuenta=" + numCuenta + ", fecha_nac=" + fecha_nac + ", saldo=" + saldo
+		return "Cuenta [id=" + id + ", numCuenta=" + numCuenta + ", fecha_nac=" + fecha_crea + ", saldo=" + saldo
 				+ ", clientes=" + clientes + ", Operaciones=" + Operaciones + "]";
 	}
 

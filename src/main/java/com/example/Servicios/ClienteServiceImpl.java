@@ -21,12 +21,6 @@ public class ClienteServiceImpl implements ClienteServiceI{
 		
 	}
 
-	@Override
-	public void eliminarCliente(Cliente Cliente) {
-
-		clienteRepositorio.delete(Cliente);
-		
-	}
 
 	@Override
 	public void aniadirCliente(Cliente Cliente) {
@@ -40,6 +34,29 @@ public class ClienteServiceImpl implements ClienteServiceI{
 
 		clienteRepositorio.save(Cliente);
 		
+	}
+
+
+	@Override
+	public void eliminarClientePorId(long ClienteId) {
+		clienteRepositorio.deleteById(ClienteId);
+		
+	}
+
+
+	@Override
+	public Cliente findClienteByID(long id) {
+		
+		Cliente c = clienteRepositorio.findClienteByID(id);
+		return c;
+		
+	}
+
+
+	@Override
+	public List<Integer> findClienteByCuentaID(long idCuenta) {
+		List<Integer> listaClientes = clienteRepositorio.findClienteByCuentaID(idCuenta);
+		return listaClientes;
 	}
 
 }

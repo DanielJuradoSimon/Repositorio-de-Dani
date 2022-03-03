@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>CLIENTES</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Listar, actualizar o eliminar clientes</a>
+		<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas</a>
+		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar cuentas por cliente</a>
+		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Ingresos y retiradas de una cuenta</a>
+		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Adjuntar cliente a cuenta</a>
+		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Transferencia</a>
+	</nav>
+
+	<div class="text-white bg-dark mb-3">
+		<div class="card-header">Datos del cliente</div>
+		<div class="card-body">
+			<form th:action="@{/actEditCliente}" th:object="${Cliente}">
+
+				<input type="hidden" required="required" class="form-control" id="inpId" name="clienteId"
+					th:value="${clienteId}">
+
+				<div class="form-group">
+					<label for="inpDNI">DNI</label>
+					<input type="text" required="required" class="form-control" id="inpDNI" name="DNI"
+						th:value="${DNI}">
+				</div>
+				<div class="form-group">
+					<label for="inpNombre">Nombre</label>
+					<input type="text" required="required" class="form-control" id="inpNombre" name="Nombre"
+						th:value="${nombre}">
+				</div>
+				<div class="form-group">
+					<label for="inpApellidos">Apellidos</label>
+					<input required="required" type="text" class="form-control" id="inpApellidos" name="Apellidos"
+						th:value="${apellidos}">
+				</div>
+				<div class="form-group">
+					<label for="inpFechaNac">Fecha de nacimiento</label>
+					<input required="required" type="date" class="form-control" id="inpFechaNac" name="fecha_nac"
+						th:value="${fecha_nac}">
+				</div>
+				<div class="form-group">
+					<label for="inpDireccion">Direccion</label>
+					<input required="required" type="text" class="form-control" id="inpDireccion" name="direccion"
+						th:value="${direccion}">
+				</div>
+				<div class="form-group">
+					<label for="inpEmail">Email</label>
+					<input required="required" type="text" class="form-control" id="inpEmail" name="email"
+						th:value="${email}">
+				</div>
+				<div class="form-group">
+					<label for="inpTelefono">Telefono</label>
+					<input required="required" type="texto" class="form-control" id="inpTelefono" name="telefono"
+						th:value="${telefono}">
+				</div>
+
+
+				<button type="submit" name="btnEditCliente" class="btn btn-success">Editar el cliente</button>
+				<a class="btn btn-danger" href="index" role="button" id="aBtnReturn">Cancelar</a>
+			</form>
+			<a class="btn btn-primary" th:href="@{index}" id="aBtnReturn" role="button">Volver</a>
+		</div>
+	</div>
+</body>
+
+
+</html>

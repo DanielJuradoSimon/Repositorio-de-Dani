@@ -10,6 +10,11 @@ import org.springframework.beans.factory.annotation.Value;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data @AllArgsConstructor @NoArgsConstructor
 @Entity
 @Table(name = "operacion")
 public class Operacion implements Serializable{
@@ -18,14 +23,9 @@ public class Operacion implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	/*@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cuenta_id")
-	private Cuenta cuenta;*/
-	
 	@Column(name = "Operacion")
-	@Enumerated(value = EnumType.STRING)
-	private TipoOperacion tipoOperacion;
+	@NotNull(message = "no puede estar vacío")
+	private String tipoOperacion;
 	
 	@Value("0")
 	@NotNull(message = "no puede estar vacío")
@@ -34,41 +34,8 @@ public class Operacion implements Serializable{
 	
 	@NotNull(message = "no puede estar vacío")
 	@Column(name = "Fecha_de_realizacion")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_de_realizacion;
+	private String fecha_de_realizacion;
 		
-
-	public long getCantidad() {
-		return cantidad;
-	}
-
-	public void setCantidad(long cantidad) {
-		this.cantidad = cantidad;
-	}
-
-	public Date getFecha_alta() {
-		return fecha_de_realizacion;
-	}
-
-	public void setFecha_alta(Date fecha_alta) {
-		this.fecha_de_realizacion = fecha_alta;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public TipoOperacion getTipoOperacion() {
-		return tipoOperacion;
-	}
-
-	public void setTipoOperacion(TipoOperacion tipoOperacion) {
-		this.tipoOperacion = tipoOperacion;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
 	@Override
 	public String toString() {

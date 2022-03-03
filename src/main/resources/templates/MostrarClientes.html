@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>CONCESIONARIO</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	</head>
-	<body class="card-body">
-		<div class="card text-white bg-dark mb-3">
-		  	<div class="card-header">Coches</div>
-			<div class="card-body">
-				<table class="table table-striped table-dark">
-					<thead class="thead-light">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Clientes</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="card-body">
+	<div class="card text-white bg-dark mb-3">
+		<div class="card-header">Clientes</div>
+		<div class="card-body">
+			<table class="table table-striped table-dark">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">DNI</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellidos</th>
+						<th scope="col">Fecha Nac.</th>
+						<th scope="col">Direccion</th>
+						<th scope="col">Email</th>
+						<th scope="col">Telefono</th>
+						<th scope="col" th:hidden="${btnBorrarClienteEnabled}">Eliminar</th>
+						<th scope="col">Actualizar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<th:block th:each="cliente : ${clientesListView}">
 						<tr>
-							<th scope="col">DNI</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Apellidos</th>
-							<th scope="col">Fecha Nac.</th>
-							<th scope="col">Direccion</th>
-							<th scope="col">Email</th>
-							<th scope="col">Telefono</th>
-							<th scope="col" th:hidden="${btnDropCarEnabled}">Eliminar</th>
+							<td scope="row" th:text="${cliente.DNI}" />
+							<td scope="row" th:text="${cliente.nombre}" />
+							<td scope="row" th:text="${cliente.apellidos}" />
+							<td scope="row" th:text="${cliente.fecha_nac}" />
+							<td scope="row" th:text="${cliente.direccion}" />
+							<td scope="row" th:text="${cliente.email}" />
+							<td scope="row" th:text="${cliente.telefono}" />
+							<td scope="row" th:hidden="${btnBorrarClienteEnabled}">
+								<form action="eliminarCliente" method="post">
+									<button th:disabled="${btnBorrarClienteEnabled}" type="submit" id="btnBorrarCliente"
+										name="clienteId" th:value="${cliente.id}" class="btn btn-danger">▼</button>
+								</form>
+							</td>
+							<td>
+								<a th:href="@{/actualizarCliente(clienteId=${cliente.id})}"
+									class="btn btn-info">Update</a>
+							</td>
 						</tr>
-					</thead>
-					<tbody>
-						<th:block th:each="cliente : ${clientesListView}">
-							<tr>
-								<td scope="row" th:text="${cliente.DNI}" />
-								<td scope="row" th:text="${cliente.nombre}" />
-								<td scope="row" th:text="${cliente.apellidos}" />
-								<td scope="row" th:text="${cliente.fecha_nac}" />
-								<td scope="row" th:text="${cliente.direccion}" />
-								<td scope="row" th:text="${cliente.telefono}" />
-								<td scope="row" th:hidden="${btnDropCarEnabled}">
-									<form action="actDropCar" method="post">
-										<button th:disabled="${btnDropCarEnabled}" type="submit"
-											id="btnDropCar" name="carId" th:value="${car.id}"
-											class="btn btn-danger">▼</button>
-									</form>
-								</td>
-							</tr>
-						</th:block>
-					</tbody>
-				</table>
-				<a class="btn btn-primary" th:href="@{index}" id="aBtnReturn" role="button">Volver</a>
-			</div>
+					</th:block>
+				</tbody>
+			</table>
+			<a class="btn btn-primary" th:href="@{index}" id="aBtnReturn" role="button">Volver</a>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>

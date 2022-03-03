@@ -14,10 +14,16 @@ public interface CuentaServiceI {
 
 	//public List<Operacion> obtenerOperacionesPorCuenta(final Cuenta Cuenta);
 	
-	public void eliminarCuenta(final Cuenta Cuenta);
+	public void eliminarCuenta(Cuenta Cuenta);
+	
+	public void eliminarCuentaPorId(long ClienteId);
 
-	public void aniadirCuenta(final Cuenta Cuenta);
+	public void aniadirCuenta(Cuenta Cuenta);
 
-	public void actualizarCuenta(final Cuenta Cuenta);
+	public void actualizarCuenta(Cuenta Cuenta);
+	
+	public Cuenta findCuentaByID(long id);
+	
+	public List<Long> findCuentaByClienteID(long idCliente);
 	
 }

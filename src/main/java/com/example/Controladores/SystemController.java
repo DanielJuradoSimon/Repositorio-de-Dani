@@ -17,20 +17,32 @@ public class SystemController {
 	
 	//Redirecciona al controlador de gestión de coches
 	@GetMapping("/verClientes")
-	public String redirectToCarDealershipController() {
+	public String verClientes() {
 		return "redirect:mostrarClientes";
 	}
 	
-	//Redirecciona a la plantilla de búsqueda
-	@GetMapping("/searchCarByView")
-	public String redirectToCarSearchByTemplate() {
-		return "searchCarBy";
+	@GetMapping("/verCuentas")
+	public String verCuentas() {
+		return "redirect:mostrarCuentas";
 	}
 	
+	@GetMapping("/ListarOperacionesPorCuenta")
+	public String listOperPorCuenta() {
+		return "redirect:mostrarClientes2";
+	}
+	
+	
+	
+	//Redirecciona a la plantilla de búsqueda
+	/*@GetMapping("/searchCarByView")
+	public String redirectToCarSearchByTemplate() {
+		return "searchCarBy";
+	}*/
+	
 	//Redirecciona a la plantilla de insercción
-	@GetMapping("/newCarView")
+	@GetMapping("/aniadirCliente")
 	public String redirectToNewCarTemplate() {
-		return "newCar";
+		return "nuevoCliente";
 	}
 
 }

@@ -10,10 +10,14 @@ public interface ClienteServiceI {
 	
 	public List<Cliente> obtenerTodosClientes();
 
-	public void eliminarCliente(final Cliente Cliente);
+	public void eliminarClientePorId(final long ClienteId);
 
 	public void aniadirCliente(final Cliente Cliente);
 
 	public void actualizarCliente(final Cliente Cliente);
+	
+	public Cliente findClienteByID(final long id);
+	
+	public List<Integer> findClienteByCuentaID(long idCuenta);
 	
 }
