@@ -90,7 +90,7 @@ public class ClientesControlador {
 		c.setApellidos(Cliente.getApellidos());
 		c.setFecha_nac(Cliente.getFecha_nac());
 		c.setDireccion(Cliente.getDireccion());
-		c.setEmail(Cliente.getApellidos());
+		c.setEmail(Cliente.getEmail());
 		c.setTelefono(Cliente.getTelefono());
 		
 		
