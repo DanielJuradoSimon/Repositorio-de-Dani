@@ -21,14 +21,14 @@
 
 		<div class="row d-flex justify-content-center mt-3">
 
-			<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-				<a class="navbar-brand" th:href="@{/verClientes}" role="button">Listar, actualizar o eliminar clientes</a>
-				<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas</a>
-				<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar cuentas por cliente</a>
-				<a class="navbar-brand" th:href="@{/verClientes}" role="button">Ingresos y retiradas de una cuenta</a>
-				<a class="navbar-brand" th:href="@{/verClientes}" role="button">Adjuntar cliente a cuenta</a>
-				<a class="navbar-brand" th:href="@{/verClientes}" role="button">Transferencia</a>
-			</nav>
+	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Listar, actualizar o eliminar clientes</a>
+		<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas</a>
+		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar cuentas por cliente</a>
+		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta2}" role="button">Listar operaciones por cuenta</a>
+		<a class="navbar-brand" th:href="@{/AnadirClienteACuenta}" role="button">Añadir cliente a cuenta</a>
+		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Transferencia</a>
+	</nav>
 			
 			<div class="card text-white bg-dark mb-3">
 				<div class="card-header">Cuentas</div>
@@ -84,6 +84,7 @@
 					</div>
 
 					<div class="col-8 " th:unless="${#lists.size(cuentasListView) < 0}"></div>
+					<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
 				</div>
 			</div>
 

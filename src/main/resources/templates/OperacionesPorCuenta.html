@@ -24,7 +24,7 @@
 		<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas</a>
 		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar cuentas por cliente</a>
 		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta2}" role="button">Listar operaciones por cuenta</a>
-		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Adjuntar cliente a cuenta</a>
+		<a class="navbar-brand" th:href="@{/AnadirClienteACuenta}" role="button">Añadir cliente a cuenta</a>
 		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Transferencia</a>
 	</nav>
 
@@ -78,6 +78,7 @@
 				</div>
 
 				<div class="col-8 " th:unless="${#lists.size(listaDatos) < 0}"></div>
+				<a class="btn btn-primary" th:href="@{index}" id="aBtnReturn" role="button">Volver</a>
 			</div>
 		</div>
 	</div>
