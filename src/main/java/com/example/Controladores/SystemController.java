@@ -2,6 +2,7 @@ package com.example.Controladores;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -50,9 +51,15 @@ public class SystemController {
 	}*/
 	
 	//Redirecciona a la plantilla de insercción
-	@GetMapping("/aniadirCliente")
-	public String redirectToNewCarTemplate() {
-		return "nuevoCliente";
+	@GetMapping("/AnadirCliente")
+	public String anadirCliente() {
+		return "NuevoCliente";
 	}
+	
+	@GetMapping("/AnadirCuenta")
+	public String anadirCuenta() {
+		return "NuevaCuenta";
+	}
+	
 
 }

@@ -61,7 +61,7 @@ public class Cuenta implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Cuenta [id=" + id + ", numCuenta=" + numCuenta + ", fecha_nac=" + fecha_crea + ", saldo=" + saldo
+		return "Cuenta [id=" + id + ", numCuenta=" + numCuenta + ", fecha_crea=" + fecha_crea + ", saldo=" + saldo
 				+ ", clientes=" + clientes + ", Operaciones=" + Operaciones + "]";
 	}
 

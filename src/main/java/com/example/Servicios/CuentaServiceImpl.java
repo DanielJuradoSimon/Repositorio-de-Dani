@@ -73,14 +73,21 @@ public class CuentaServiceImpl implements CuentaServiceI{
 	@Override
 	public void aniadirCuenta(Cuenta Cuenta) {
 		
-		cuentaRepositorio.save(null);
+		cuentaRepositorio.save(Cuenta);
 		
 	}
 
 	@Override
-	public void actualizarCuenta(Cuenta Cuenta) {
+	public void actualizarCuenta(Cuenta nuevaCuenta) {
 		
-		cuentaRepositorio.save(null);
+		cuentaRepositorio.save(nuevaCuenta);
+		
+	}
+	
+	@Override
+	public long countId() {
+
+		return (long)cuentaRepositorio.countId();
 		
 	}
 	

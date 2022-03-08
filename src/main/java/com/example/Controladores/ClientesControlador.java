@@ -95,7 +95,6 @@ public class ClientesControlador {
 		
 		
 		if (result.hasErrors()) {
-			//throw new Exception("Parámetros de id erróneos");
 			System.out.println(result.getAllErrors());
 		}
 		else {
@@ -110,19 +109,21 @@ public class ClientesControlador {
 	}
 	
 
-	@PostMapping("/aniadirCliente")
+	@PostMapping("/nuevoCliente")
 	private String aniadirCliente(@Valid @ModelAttribute Cliente nuevoCliente, BindingResult result) throws Exception {
 
+		nuevoCliente.setId(clienteServiceI.countId()+1);
 		
 		if (result.hasErrors()) {
+			System.out.println(nuevoCliente.toString());
 			throw new Exception("Parámetros erróneos");
 		} else {
 
-			// Se añade el nuevo coche
 			clienteServiceI.aniadirCliente(nuevoCliente);
+			
 		}
 
-		return "redirect:showCarsView";
+		return "redirect:mostrarClientes";
 	}
 	
 	@GetMapping("/mostrarClientesPorCuenta")

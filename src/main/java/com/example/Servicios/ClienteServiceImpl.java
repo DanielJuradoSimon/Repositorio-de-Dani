@@ -67,4 +67,12 @@ public class ClienteServiceImpl implements ClienteServiceI{
 		
 	}
 
+
+	@Override
+	public long countId() {
+
+		return (long)clienteRepositorio.countId();
+		
+	}
+
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Banco Central</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		body {
+			background-image: url("https://www.solofondos.com/wp-content/uploads/2015/11/21omxpw.jpg");
+		}
+	</style>
+</head>
+
+<body>
+	<div class="card text-white bg-dark mb-3 p-3">
+		<div>Insertar cliente</div>
+		<div>
+			<br>
+			<form th:action="@{/nuevoCliente}" th:object="${nuevoCliente}" method="POST">
+
+				<div class="form-group">
+					<label for="inpclientedni">DNI</label>
+					<input required="required" type="text" class="form-control" id="inpClienteDni" name="DNI"
+						placeholder="Dni">
+				</div>
+
+				<div class="form-group">
+					<label for="inpnombre">Nombre</label>
+					<input type="text" required="required" class="form-control" id="inpClienteNombre" name="nombre"
+						placeholder="Nombre">
+				</div>
+				<div class="form-group">
+					<label for="inpapellidos">Apellidos</label>
+					<input type="text" required="required" class="form-control" id="inpClienteApellidos"
+						name="apellidos" placeholder="Apellidos">
+				</div>
+
+				<div class="form-group">
+					<label for="inpfechanac">Fecha de nacimiento</label>
+					<input type="text" required="required" class="form-control" id="inpClienteFechaNac" name="fecha_nac"
+						placeholder="Fecha de nacimiento">
+				</div>
+
+				<div class="form-group">
+					<label for="inpdireccion">Direccion</label>
+					<input type="text" required="required" class="form-control" id="inpClienteDireccion"
+						name="direccion" placeholder="Direccion">
+				</div>
+
+				<div class="form-group">
+					<label for="inpemail">Email</label>
+					<input type="text" required="required" class="form-control" id="inpClienteEmail" name="email"
+						placeholder="Email">
+				</div>
+
+				<div class="form-group">
+					<label for="inptelefono">Telefono</label>
+					<input type="text" required="required" class="form-control" id="inpClienteTelefono" name="telefono"
+						placeholder="Telefono">
+				</div>
+				<br>
+				<button type="submit" name="btnAddCliente" class="btn btn-success">Añadir</button>
+				<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

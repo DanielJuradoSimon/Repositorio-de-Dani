@@ -6,23 +6,17 @@
 	<title>Añadir clientes</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		body{
+			background-image: url("https://www.solofondos.com/wp-content/uploads/2015/11/21omxpw.jpg");
+		}
+	</style>	
 </head>
-<br>
-
-<body class="card-body">
-
-	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Listar, actualizar o eliminar clientes</a>
-		<a class="navbar-brand" th:href="@{/verCuentas}" role="button">Listar cuentas</a>
-		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta}" role="button">Listar cuentas por cliente</a>
-		<a class="navbar-brand" th:href="@{/ListarOperacionesPorCuenta2}" role="button">Listar operaciones por cuenta</a>
-		<a class="navbar-brand" th:href="@{/AnadirClienteACuenta}" role="button">Añadir cliente a cuenta</a>
-		<a class="navbar-brand" th:href="@{/verClientes}" role="button">Transferencia</a>
-	</nav>
-
-	<div class="card text-white bg-dark mb-3">
-		<div class="card-header">Nuevo cliente</div>
-		<div class="card-body">
+<body>
+	<div class="card text-white bg-dark mb-3 p-3">
+		<div>Nueva asignación de cuenta</div>
+		<div>
+		<br>
 			<form th:action="@{/anadirClienteCuenta}" th:object="${Clientecuenta}" method="POST">
 
 				<div class="form-group">
@@ -40,7 +34,7 @@
 							th:value="${{cuenta.id}}"></option>
 					</select>
 				</div>
-
+				<br>
 				<button type="submit" name="btnAddRelation" class="btn btn-success">Añadir</button>
 				<a class="btn btn-primary" href="index" role="button" id="aBtnReturn">Volver</a>
 			</form>

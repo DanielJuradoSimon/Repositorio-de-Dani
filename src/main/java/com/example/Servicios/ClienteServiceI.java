@@ -22,4 +22,6 @@ public interface ClienteServiceI {
 	
 	public void insercionClienteCuenta(long id_cliente, long id_cuenta);
 	
+	public long countId();
+	
 }

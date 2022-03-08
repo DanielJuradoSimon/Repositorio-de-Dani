@@ -53,7 +53,6 @@ public class Cliente implements Serializable{
 	
 	@NotNull(message = "no puede estar vacío")
 	@Column(name = "Fecha_de_nacimiento")
-	//@Temporal(TemporalType.DATE)
 	private String fecha_nac;
 	
 	@NotNull(message = "no puede estar vacío")
@@ -69,7 +68,7 @@ public class Cliente implements Serializable{
 	private String telefono;
 	
 	//@JsonIgnoreProperties(value={"cliente", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
 	@JoinTable(name = "cliente_cuenta",
 	joinColumns = @JoinColumn(name = "cliente_id"),
 	inverseJoinColumns = @JoinColumn(name = "cuenta_id"))

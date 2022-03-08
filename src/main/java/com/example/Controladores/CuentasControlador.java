@@ -149,15 +149,16 @@ public class CuentasControlador {
 	}
 	
 
-	@PostMapping("/aniadirCuenta")
-	private String aniadirCuenta(@Valid @ModelAttribute Cuenta nuevaCuenta, BindingResult result) throws Exception {
+	@PostMapping("/nuevaCuenta")
+	private String aniadirCliente(@Valid @ModelAttribute Cuenta nuevaCuenta, BindingResult result) throws Exception {
 
+		nuevaCuenta.setId(cuentaServiceI.countId()+1);
 		
 		if (result.hasErrors()) {
+			System.out.println(nuevaCuenta.toString());
 			throw new Exception("Parámetros erróneos");
 		} else {
 
-			// Se añade el nuevo coche
 			cuentaServiceI.aniadirCuenta(nuevaCuenta);
 		}
 

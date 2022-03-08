@@ -20,6 +20,9 @@ public interface ClienteRepositorioI extends JpaRepository<Cliente, Long>{
 	@Query(value = "SELECT cliente_id FROM cliente_cuenta JOIN cuentas ON cliente_cuenta.cuenta_id = cuentas.id WHERE cuentas.id = ?", nativeQuery = true)
 	List<Integer> findClienteByCuentaID(long idCuenta);
 	
+	@Query(value = "SELECT COUNT(id) FROM `clientes`", nativeQuery = true)
+	int countId();
+		
 	@Transactional
 	@Modifying
 	@Query(
