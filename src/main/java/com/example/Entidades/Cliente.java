@@ -67,8 +67,7 @@ public class Cliente implements Serializable{
 	@Column(nullable = false, unique = true, name = "telefono")
 	private String telefono;
 	
-	//@JsonIgnoreProperties(value={"cliente", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "cliente_cuenta",
 	joinColumns = @JoinColumn(name = "cliente_id"),
 	inverseJoinColumns = @JoinColumn(name = "cuenta_id"))

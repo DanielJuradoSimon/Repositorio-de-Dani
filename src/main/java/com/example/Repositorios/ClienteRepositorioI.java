@@ -54,4 +54,14 @@ public interface ClienteRepositorioI extends JpaRepository<Cliente, Long>{
 			  nativeQuery = true)
 	void insercion(long id_cliente, long id_cuenta);
 	
+	/**
+	 * Este método nos servirá para eliminar de la tabla intermedia de la relación n:m un registro pasando las id correspondientes
+	 * 
+	 * @return
+	 */
+	@Transactional
+	@Modifying
+	@Query(value = "DELETE FROM `cliente_cuenta` WHERE `cuenta_id` = ?", nativeQuery = true)
+	int borrarClienteCuenta(long id_cuenta);
+	
 }

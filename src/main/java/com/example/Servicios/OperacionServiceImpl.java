@@ -42,4 +42,11 @@ public class OperacionServiceImpl implements OperacionServiceI{
 		
 	}
 
+	@Override
+	public void borrarOperacionesPorCuenta(long cuentaId) {
+		
+		operacionRepositorio.borrarOperaciones(cuentaId);
+		
+	}
+
 }

@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 public class Cliente_cuenta {
 	
 	@NotNull(message = "no puede estar vacío")
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private long Cliente_id;
 	
 	@NotNull(message = "no puede estar vacío")
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private long Cuenta_id;
 	
 }

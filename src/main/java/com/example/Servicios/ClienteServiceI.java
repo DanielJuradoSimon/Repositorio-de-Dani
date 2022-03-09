@@ -21,6 +21,8 @@ public interface ClienteServiceI {
 	public List<Integer> findClienteByCuentaID(long idCuenta);
 	
 	public void insercionClienteCuenta(long id_cliente, long id_cuenta);
+
+	public void borradoClienteCuenta(long id_cuenta);
 	
 	public long countId();
 	

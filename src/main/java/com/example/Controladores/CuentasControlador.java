@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,7 +124,9 @@ public class CuentasControlador {
 	@PostMapping("/eliminarCuenta")
 	public String eliminaCuenta(@RequestParam String cuentaId, Model model) {
 
-		// Eliminación de vehículo
+
+		clienteServiceI.borradoClienteCuenta(Long.parseLong(cuentaId));
+		operacionServiceI.borrarOperacionesPorCuenta(Long.parseLong(cuentaId));
 		cuentaServiceI.eliminarCuentaPorId(Long.parseLong(cuentaId));
 
 		return "redirect:mostrarCuentas";
@@ -142,11 +145,14 @@ public class CuentasControlador {
 	@PostMapping("/eliminarCuentaPorCliente")
 	public String eliminaCuentaPorCliente(@RequestParam String cuentaId, Model model) {
 
+		clienteServiceI.borradoClienteCuenta(Long.parseLong(cuentaId));
+		operacionServiceI.borrarOperacionesPorCuenta(Long.parseLong(cuentaId));
 		cuentaServiceI.eliminarCuentaPorId(Long.parseLong(cuentaId));
 
 		return "redirect:/mostrarClientes2";
 
 	}
+	
 	
 	/**
 	 * Este método, en base a una id de un registro Cuenta, saca los campos del mismo y los manda a la vista

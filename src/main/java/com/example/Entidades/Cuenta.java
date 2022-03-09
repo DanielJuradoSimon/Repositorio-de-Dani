@@ -41,7 +41,6 @@ public class Cuenta implements Serializable{
 	
 	@NotNull(message = "no puede estar vacío")
 	@Column(name = "Fecha_de_creacion")
-	//@Temporal(TemporalType.DATE)
 	private String fecha_crea;
 	
 	@Value("0")
@@ -49,11 +48,9 @@ public class Cuenta implements Serializable{
 	@Column(nullable = false)
 	private long saldo;
 	
-	//@JsonIgnoreProperties(value={"cuenta", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="misCuentas")
 	private List<Cliente> clientes;
 	
-	//@JsonIgnoreProperties(value={"cuenta", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="cuenta_id")
 	private List<Operacion> Operaciones;

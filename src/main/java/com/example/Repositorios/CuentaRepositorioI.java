@@ -30,4 +30,5 @@ public interface CuentaRepositorioI extends JpaRepository<Cuenta, Long>{
 	@Query(value = "SELECT COUNT(id) FROM `cuentas`", nativeQuery = true)
 	int countId();
 	
+	
 }

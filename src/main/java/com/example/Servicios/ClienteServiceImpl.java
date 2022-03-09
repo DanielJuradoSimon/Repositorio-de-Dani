@@ -66,6 +66,13 @@ public class ClienteServiceImpl implements ClienteServiceI{
 		clienteRepositorio.insercion(id_cliente, id_cuenta);
 		
 	}
+	
+	@Override
+	public void borradoClienteCuenta(long id_cuenta) {
+		
+		clienteRepositorio.borrarClienteCuenta(id_cuenta);
+		
+	}
 
 
 	@Override

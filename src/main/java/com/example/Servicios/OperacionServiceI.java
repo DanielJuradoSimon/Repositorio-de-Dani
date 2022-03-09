@@ -14,5 +14,7 @@ public interface OperacionServiceI {
 	public void aniadirOperacion(Operacion Operacion);
 
 	public void actualizarOperacion(Operacion Operacion);
+	
+	public void borrarOperacionesPorCuenta(long cuentaId);
 		
 }
