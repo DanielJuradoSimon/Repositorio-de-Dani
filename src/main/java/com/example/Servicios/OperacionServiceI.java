@@ -9,10 +9,10 @@ public interface OperacionServiceI {
 
 	public List<Operacion> obtenerTodosOperaciones();
 
-	public void eliminarOperacion(final Operacion Operacion);
+	public void eliminarOperacion(Operacion Operacion);
 
-	public void aniadirOperacion(final Operacion Operacion);
+	public void aniadirOperacion(Operacion Operacion);
 
-	public void actualizarOperacion(final Operacion Operacion);
+	public void actualizarOperacion(Operacion Operacion);
 		
 }

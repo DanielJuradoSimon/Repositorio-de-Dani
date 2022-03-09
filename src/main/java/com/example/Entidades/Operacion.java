@@ -35,6 +35,10 @@ public class Operacion implements Serializable{
 	@NotNull(message = "no puede estar vacío")
 	@Column(name = "Fecha_de_realizacion")
 	private String fecha_de_realizacion;
+	
+	@NotNull(message = "no puede estar vacío")
+	@Column(name = "Cuenta_id")
+	private String cuenta_id;
 		
 	
 	@Override

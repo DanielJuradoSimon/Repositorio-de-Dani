@@ -27,8 +27,8 @@ public class SystemController {
 		return "redirect:mostrarCuentas";
 	}
 	
-	@GetMapping("/ListarOperacionesPorCuenta")
-	public String listOperPorCuenta() {
+	@GetMapping("/ListarCuentasPorCliente")
+	public String listCuentPorClient() {		
 		return "redirect:mostrarClientes2";
 	}
 	
@@ -61,5 +61,15 @@ public class SystemController {
 		return "NuevaCuenta";
 	}
 	
-
+	@GetMapping("/RetirarIngresar")
+	public String RetirarIngresar() {
+		return "Operaciones";
+	}
+	
+	@GetMapping("/HacerTransferencia")
+	public String HacerTransferencia() {
+		return "Transaccion";
+	}
+	
+	
 }
