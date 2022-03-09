@@ -25,7 +25,7 @@
 <body>
 
 	<div class="card text-white bg-dark mb-3 p-3">
-		<div>Ingreso/Retirada</div>
+		<div>Transferencia a otra cuenta</div>
 		<br>
 		<div>
 			<form method="GET" action="/mostrarCuentasPorCliente3">
@@ -49,11 +49,11 @@
 				<option th:each="cuenta2 : ${todasCuentasListView}" th:value="${cuenta2.id}"
 					th:utext="${cuenta2.numCuenta}"></option>
 			</select>
-			<input type="text" name="cantidad" placeholder="Cantidad a transferir"/>
-			<input type="submit" value="Realizar transferencia" class="m-3"/>
+			<input type="text" name="cantidad" placeholder="Cantidad a transferir" />
+			<input type="submit" value="Realizar transferencia" class="m-3" />
 		</form>
 		<div>
-			<a class="btn btn-dark m-2" th:href="@{index}" id="aBtnReturn" role="button">Volver</a>
+			<a class="btn btn-dark" th:href="@{index}" id="aBtnReturn" role="button">Volver</a>
 		</div>
 	</div>
 	</div>

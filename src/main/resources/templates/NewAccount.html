@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>    
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div th:replace="navbar :: header"></div>
+    
+      <div class="container cuerpo_externo">
+    
+      <main class="cuerpo_interno d-flex align-items-center">
+    
+	    	<div class="row d-flex justify-content-center  mt-3">
+	    	<h1 class="titulo_centrado text-center">Creación de cuenta</h1>
+		    	<div class="col-6 ">
+		    		<form  th:action="@{/addNewAccount}" th:object="${newAccount}" method="POST" class="row g-3 needs-validation" novalidate>
+							 <div class="col-md-12">
+							    
+							    <select name="id" class="form-select form-select-lg">
+					    			<option value="0">Elige un usuario</option>
+					    			<option th:each="user : ${users}"
+				                       th:value="${user.id}"
+				                       th:utext="${user.nif}"></option>
+			    				</select>
+				   				
+			  				</div>
+						  <div class="col-md-12">
+						    <label class="form-label titulo_centrado">Númerio de cuenta: </label><br>
+						   	<input type="text" name="numAccount" placeholder="Escribe un numero de cuenta..."/>
+						   
+						  </div>
+						
+						  <div class="col-md-12">
+						    <label  class="form-label titulo_centrado">Fecha de creación: </label><br>
+						   <input type="date" name="createAt"/>
+						    
+						  </div>
+						  <div class="col-md-12">
+						    <label for="validationCustomUsername" class="form-label titulo_centrado">Balance</label>
+						    <div class="input-group has-validation">
+						    
+						      	<input type="number" name="balance"/>
+						      
+						    </div>
+						  </div>
+						  
+						
+						
+						
+						  <div class="col-12">
+						   <input class="btn btn-primary" type="submit" value="Buscar"/>
+						  </div>
+					</form>
+		    	</div>
+		    </main>	
+    	</div>
+    	
+    </div>
+
+    
+</body>
+</html>
+
+
+<!-- 
+		    	  <form method="POST" th:action="@{/addNewAccount}" th:object="${newAccount}">
+		    	 	  <div class="mb-3 w-50 col-6">
+		    	 		<select name="id" class="form-select form-select-lg">
+			    			<option value="0">Elige un usuario</option>
+			    			<option th:each="user : ${users}"
+		                       th:value="${user.id}"
+		                       th:utext="${user.nif}"></option>
+			    		</select>
+		    	 	  </div>
+			    		
+			    	  <div class="mb-3 col-6">
+			    	  	<input type="text" name="numAccount" placeholder="Escribe un numero de cuenta..."/>
+			    	  </div>
+			    		
+			    	  <div class="mb-3 ">
+			    	  	<input type="date" name="createAt"/>
+			    	  </div>
+			    		
+			    	  <div class="mb-3">
+			    	  	<input type="number" name="balance"/>
+			    	  </div>
+			    		
+			    	  <div class="mb-3">
+			    	  	<input class="btn btn-primary" type="submit" value="Buscar"/>
+			    	  </div>
+			    		
+		    	   </form>	
+		    	</div>
+		    	-->	

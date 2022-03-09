@@ -35,6 +35,12 @@ public class ClientesControlador {
 	@Autowired
 	private CuentaServiceI cuentaServiceI;
 	
+	/**
+	 * Adjunta a la vista todos los registros de clientes en la base de datos
+	 * 
+	 * @param model
+	 * @return vista MostrarClientes
+	 */
 	@GetMapping("/mostrarClientes")
 	public String mostrarClientes(Model model) {
 
@@ -48,6 +54,13 @@ public class ClientesControlador {
 		return "MostrarClientes";
 	}
 	
+	/**
+	 * Método que elimina de la base de datos el registro con la id proporcionada
+	 * 
+	 * @param clienteId
+	 * @param model
+	 * @return redirecciona al método mostrarClientes
+	 */
 	@PostMapping("/eliminarCliente")
 	public String eliminarCliente(@RequestParam String clienteId, Model model) {
 
@@ -58,6 +71,13 @@ public class ClientesControlador {
 
 	}
 	
+	/**
+	 * Este método recoge un registro y manda sus campos a la vista para que se muestren y se puedan editar
+	 * 
+	 * @param clienteId
+	 * @param model
+	 * @return redirecciona a la vista ActualizarClientes
+	 */
 	@GetMapping("/actualizarCliente")
 	public String recogerCliente(String clienteId, Model model) {
 		
@@ -80,6 +100,14 @@ public class ClientesControlador {
 	}
 	
 
+	/**
+	 * Este método recoge los campos modificados y los guarda en base a un objeto dado, sobreescribiéndolo
+	 * 
+	 * @param Cliente
+	 * @param result
+	 * @return redirecciona al método mostrarClientes 
+	 * @throws Exception
+	 */
 	@GetMapping("/actEditCliente")
 	public String actualizarCliente(@Valid @ModelAttribute Cliente Cliente, BindingResult result) throws Exception {
 
@@ -108,7 +136,14 @@ public class ClientesControlador {
 		return "redirect:mostrarClientes";
 	}
 	
-
+	/**
+	 * Este método recoge un objeto Cliente por parámetro y lo introduce en la base de datos
+	 * 
+	 * @param nuevoCliente
+	 * @param result
+	 * @return redirecciona al método mostrarClientes
+	 * @throws Exception
+	 */
 	@PostMapping("/nuevoCliente")
 	private String aniadirCliente(@Valid @ModelAttribute Cliente nuevoCliente, BindingResult result) throws Exception {
 
@@ -126,6 +161,13 @@ public class ClientesControlador {
 		return "redirect:mostrarClientes";
 	}
 	
+	/**
+	 * Este método recoge la id de una cuenta y busca los clientes en base a esa id.
+	 * 
+	 * @param cuentaId
+	 * @param model
+	 * @return redirecciona a la vista ListarCuentasPorCliente
+	 */
 	@GetMapping("/mostrarClientesPorCuenta")
 	public String mostrarClientesPorCuenta(String cuentaId, Model model) {
 
@@ -136,10 +178,16 @@ public class ClientesControlador {
 
 		// Carga de datos al modelo
 		model.addAttribute("clientesPorCuentaListView", listaClientes);
-		//model.addAttribute("btnBorrarClienteEnabled", Boolean.FALSE);
 
 		return "ListarCuentasPorCliente";
 	}
+	
+	/**
+	 * Este método añade clientes y cuentas a la vista
+	 * 
+	 * @param model
+	 * @return redirecciona a la vista ClienteACuenta
+	 */
 	
 	@GetMapping("/anadirClienteACuenta")
 	private String anadirClienteLista(Model model) {
@@ -155,6 +203,14 @@ public class ClientesControlador {
 
 	}
 	
+	/**
+	 * Este método inserta en la tabla intermedia un nuevo registro basado en las id de un cliente y una cuenta
+	 * 
+	 * @param Clientecuenta
+	 * @param result
+	 * @return redirecciona al índice
+	 * @throws Exception
+	 */
 	@PostMapping("/anadirClienteCuenta")
 	public String anadirClienteLista2(@Valid @ModelAttribute Cliente_cuenta Clientecuenta, BindingResult result)
 			throws Exception {
@@ -179,7 +235,4 @@ public class ClientesControlador {
 
 		return "redirect:index";
 	}
-	
-	
-
 }

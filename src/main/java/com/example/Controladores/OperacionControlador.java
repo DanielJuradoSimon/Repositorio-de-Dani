@@ -25,6 +25,12 @@ public class OperacionControlador {
 	@Autowired
 	private CuentaServiceI cuentaServiceI;
 	
+	/**
+	 * Este método pasa a la vista los listados de cuentas y operaciones
+	 * 
+	 * @param model
+	 * @return redirecciona a la vista OperacionesPorCuenta
+	 */
 	@GetMapping("/cuentas1")
 	public String mostrarOperaciones(Model model) {
 		
@@ -33,10 +39,18 @@ public class OperacionControlador {
 		
 		model.addAttribute("listaDatos",listaOperaciones);
 		model.addAttribute("cuentas", cuentas);
+		
 		return "OperacionesPorCuenta";
 	}
 	
-	
+	/**
+	 * Este método muestra las operaciones asignadas a una cuenta en base a su id
+	 * 
+	 * @param id
+	 * @param model
+	 * @return redirecciona a la vista OperacionesPorCuenta
+	 * 
+	 */
 	
 	@PostMapping("/cuentas2")
 	public String mostrarCuentasPorId(@RequestParam String id, Model model) {

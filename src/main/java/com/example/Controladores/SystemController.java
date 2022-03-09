@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SystemController {
 	
 	
-	//Capta cualquier solicitud
 	@GetMapping
 	public String showIndex() {
 		return "index";
 	}
 	
-	//Redirecciona al controlador de gestión de coches
 	@GetMapping("/verClientes")
 	public String verClientes() {
 		return "redirect:mostrarClientes";
@@ -42,15 +40,6 @@ public class SystemController {
 		return "redirect:anadirClienteACuenta";
 	}
 	
-	
-	
-	//Redirecciona a la plantilla de búsqueda
-	/*@GetMapping("/searchCarByView")
-	public String redirectToCarSearchByTemplate() {
-		return "searchCarBy";
-	}*/
-	
-	//Redirecciona a la plantilla de insercción
 	@GetMapping("/AnadirCliente")
 	public String anadirCliente() {
 		return "NuevoCliente";
@@ -63,12 +52,17 @@ public class SystemController {
 	
 	@GetMapping("/RetirarIngresar")
 	public String RetirarIngresar() {
-		return "Operaciones";
+		return "redirect:ListasCuentasClientes";
 	}
 	
 	@GetMapping("/HacerTransferencia")
 	public String HacerTransferencia() {
-		return "Transaccion";
+		return "redirect:SacarClientesTransaccion";
+	}
+	
+	@GetMapping("/CuentaACliente")
+	public String CuentaACliente() {
+		return "redirect:SacarClientes";
 	}
 	
 	
