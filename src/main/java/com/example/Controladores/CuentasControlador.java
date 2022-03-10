@@ -460,10 +460,11 @@ public class CuentasControlador {
 			throw new Exception("Parámetros erróneos");
 		} else {
 
+			System.out.println("---------------HOLA---------");
 			cuentaServiceI.aniadirCuenta(nuevaCuenta);
 		}
 		
-		
+		System.out.println("---------------HOLA2---------");
 		clienteServiceI.insercionClienteCuenta(Long.parseLong(id), nuevaCuenta.getId());
 		
 

@@ -79,14 +79,15 @@ public class ClientesControlador {
 	 * @return redirecciona a la vista ActualizarClientes
 	 */
 	@GetMapping("/actualizarCliente")
-	public String recogerCliente(String clienteId, Model model) {
+	public String recogerCliente(String id, Model model) {
 		
 	  
-		idClienteAux = Long.valueOf(clienteId);
+		idClienteAux = Long.valueOf(id);
 	  
-	  Cliente c = clienteServiceI.findClienteByID(Long.valueOf(clienteId));
+	  Cliente c = clienteServiceI.findClienteByID(Long.valueOf(id));
 
 	//Carga de datos al modelo
+	  model.addAttribute("id", c.getId());
 	  model.addAttribute("DNI", c.getDNI());
 	  model.addAttribute("nombre", c.getNombre());
 	  model.addAttribute("apellidos", c.getApellidos());
@@ -113,6 +114,8 @@ public class ClientesControlador {
 
 		Cliente c = new Cliente();
 
+		System.out.println(Cliente.toString());
+		c.setId(Cliente.getId());
 		c.setDNI(Cliente.getDNI());
 		c.setNombre(Cliente.getNombre());
 		c.setApellidos(Cliente.getApellidos());
@@ -121,13 +124,13 @@ public class ClientesControlador {
 		c.setEmail(Cliente.getEmail());
 		c.setTelefono(Cliente.getTelefono());
 		
+		System.out.println(c.toString());
 		
 		if (result.hasErrors()) {
 			System.out.println(result.getAllErrors());
 		}
 		else {
 			
-			clienteServiceI.eliminarClientePorId(idClienteAux);
 			clienteServiceI.actualizarCliente(c);
 			
 		}
